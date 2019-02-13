@@ -1,0 +1,73 @@
+.backImage{
+  width:100%;
+  height:10rem;
+  background: white;
+}
+.backImage>image{
+  width:100%;
+  height:100%;
+}
+.global{
+  min-height:100vh;
+  font-size:.8rem;
+}
+.fromInput{
+  margin: 10px;
+  padding:10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow:0px 2px 10px 0px rgba(206,206,206,0.5);
+}
+.fromInput .borders{
+  border-bottom:1px solid #F1F1F1;
+}
+.fromInput>.a{
+  padding:5px 0;
+  margin-bottom:10px;
+}
+.fromInput button{
+  margin:20px 0 10px;
+  background:rgba(47,154,192,1) linear-gradient(138deg,rgba(47,183,192,1) 0%,rgba(47,154,192,1) 100%);
+}
+.list{
+  padding:10px;
+}
+.item{
+  background: white;
+  border-radius: 10px;
+  padding:15px 5px;
+  box-shadow:0px 2px 10px 0px rgba(206,206,206,0.5);
+  margin-bottom:.6rem;
+}
+.item image{
+  width:4.5rem;
+  height:2.1rem;
+  background: white;
+  border-radius: .2rem;
+} 
+.item>view:nth-child(1){
+  width:5rem;
+}
+.item>view:nth-child(1)>text{
+  color:#999999;
+  font-size: .6rem;
+  width:5rem;
+}
+.item>view:nth-child(2)>text{
+  color:#2F9AC0;
+  font-weight:600;
+  font-size: .8rem;
+}
+.item>view:nth-child(2){
+  width:5rem;
+}
+.item>view:nth-child(3){
+  flex:1;
+}
+.item>view:nth-child(3)>view{
+  padding:.1rem .3rem;
+  background: #F7F7F7;
+  color:#666;
+  border-radius: 1rem;
+  font-size:.7rem;
+}

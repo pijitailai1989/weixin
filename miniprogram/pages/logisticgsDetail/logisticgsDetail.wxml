@@ -1,0 +1,38 @@
+<view class="global">
+   <view class="logPrice">
+      <view class="flex j-between a-center">
+        <view class="flex a-center">
+            <text class="quan">总</text>
+            <text>{{detailData.shipping_cost}} {{detailData.cost_currency}}</text>
+        </view>
+        <text>{{detailData.weight}}kg</text>
+      </view>
+      <view class="flex j-between a-center">
+         <text class="leftText">总重价:18 {{detailData.cost_currency}}</text>
+         <text class="rightText">固定价:18 {{detailData.cost_currency}}</text>
+      </view>
+      <view class="flex j-between a-center">
+         <text class="leftText">续重价:18 {{detailData.cost_currency}}</text>
+         <text class="rightText">燃油费:18 {{detailData.cost_currency}}</text>
+      </view>
+      <view class="flex j-between a-center">
+         <text decode="{{true}}" class="leftText">单&emsp;价:18 {{detailData.cost_currency}}</text>
+         <text decode="{{true}}" class="rightText">运&emsp;费:18 {{detailData.cost_currency}}</text>
+      </view>
+   </view>
+   <view class="tabText flex">
+       <text bindtap="touchTab" data-star="service" class="{{!serviceHide?'active':''}}">物流服务</text>
+       <text bindtap="touchTab" data-star="about" class="{{serviceHide?'active':''}}">公司介绍</text>
+   </view>
+   <view class="flex row a-center service" wx:if="{{!serviceHide}}">
+      <view class="item flex column a-center j-center" wx:for="{{serviceArr}}" wx:key="index">
+          <text class="iconfont {{item.icon}}" style='color : {{item.color}};font-size :{{item.size}}'></text>
+          <text>{{item.text}}</text>
+      </view>
+   </view>
+   <view class="about" wx:else>
+      <text>
+          {{detailData.service_name}}
+      </text>
+   </view>
+</view>

@@ -1,0 +1,67 @@
+<view class="global">
+   <view class="backImage">
+       <image src="/images/wxbg.png" mode="aspectFill"></image>
+   </view>
+   <view class="fromInput">
+      
+      <picker bindchange="bindPickerChange" range-key="{{'name'}}" value="{{index}}" range="{{array}}">
+         <view class="flex a-center a .borders">
+          <text class="iconfont icon-location" style='color : #BFBFBF;font-size :27px'></text>
+          <input value="{{array[index].name}}" style="flex:1;margin:0 10px;" placeholder="请选择目的国" disabled="true" />
+          <text class="iconfont icon-left" style='color : #BFBFBF;font-size : 30px'></text>
+         </view>
+      </picker>  
+      
+      <view class="flex a-center a .borders">
+          <text class="iconfont icon-zhongliangKG" style='color : #BFBFBF;font-size :27px'></text>
+          <input bindinput="bindKeyInput" value="{{weight}}" style="flex:1;margin:0 10px;" placeholder="请输入物品重量" />
+          <text style='color : #BFBFBF;width:1.5rem'>kg</text>
+      </view>
+      <view>
+          <button
+            type="primary"
+            size="{{primarySize}}"
+            loading="{{loading}}"
+            plain="{{plain}}"
+            disabled="{{disabled}}"
+            bindtap="freight"
+            style="border-radius:30px;"
+          >
+            运费计算
+          </button>
+      </view>
+      <view class="flex j-end a-center">
+              <text style="padding:0 5px;color:#BFBFBF;">全部</text>
+              <text class="iconfont icon-bottom" style='color : #BFBFBF;font-size : 27px;padding:0 5px;'></text>
+      </view>
+       
+   </view>
+   <view class="list">
+     <view class="item flex" bindtap="goPage" data-obj="{{item}}" wx:for="{{list}}" wx:key="index">
+        <view class="flex column a-center j-center">
+           <image src="{{baseUrl+item.lastmile_logo}}" mode="scaleToFill"></image>
+           <text class="hiddenT">{{item.lastmile_name}}</text>
+        </view>
+        <view class="flex column a-center j-around">
+           <text>{{item.shipping_cost}} {{item.cost_currency}}</text> 
+           <view>
+            <block>
+              <text wx:for="{{item.score}}" wx:key="index" class="iconfont icon-xingxing" style='color : #E78483;font-size : 1rem'></text>
+              <text wx:for="{{5 - item.score}}" wx:key="index" class="iconfont icon-xingxing" style='color : #BFBFBF;font-size : 1rem'></text>
+            </block>
+           </view>
+        </view>
+        <view class="flex j-end a-center">
+           <view wx:if="{{item.best_price&&item.fastest&&item.highest_score}}" style="background:#F4B33D;color:white;">价格 时效 评价最优</view>
+           <view wx:elif="{{item.best_price&&item.fastest&&!item.highest_score}}" style="background:#F4B33D;color:white;">价格 时效最优</view>
+           <view wx:elif="{{!item.best_price&&item.fastest&&item.highest_score}}" style="background:#F4B33D;color:white;">时效 评价最优</view>
+           <view wx:elif="{{item.best_price&&!item.fastest&&item.highest_score}}" style="background:#F4B33D;color:white;">价格 评价最优</view>
+           <view wx:elif="{{item.best_price}}" style="background:#2F9AC0;color:white;">价格最优</view>
+           <view wx:elif="{{item.fastest}}" style="background:#2F9AC0;color:white;">时效最优</view>
+           <view wx:elif="{{item.highest_score}}" style="background:#2F9AC0;color:white;">评价最优</view>
+           <view wx:else>普通</view>
+           <text class="iconfont icon-left" style='color : #BFBFBF;font-size : 1.5rem'></text>
+        </view>
+     </view>
+   </view>
+</view>
